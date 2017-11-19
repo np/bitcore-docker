@@ -3,8 +3,8 @@ MAINTAINER Jens Mittag <kontakt@jensmittag.de>
 
 # Version configuration
 ARG BITCORE_PKG=satoshilabs/bitcore
-ARG WALLET_SERVICE_VERSION=1.17.0
-ARG BITCOIND_RPC_VERSION=0.7.0
+#ARG WALLET_SERVICE_VERSION=1.17.0
+#ARG BITCOIND_RPC_VERSION=0.7.0
 
 # Install required dependencies
 RUN apt-get update
@@ -16,8 +16,8 @@ USER node
 RUN mkdir /home/node/bitcore
 RUN mkdir /home/node/bitcoind
 WORKDIR /home/node/bitcore
-RUN npm install bitcoind-rpc:$BITCOIND_RPC_VERSION
-RUN npm install bitcore-wallet-service@$WALLET_SERVICE_VERSION
+# RUN npm install bitcoind-rpc:$BITCOIND_RPC_VERSION
+# RUN npm install bitcore-wallet-service@$WALLET_SERVICE_VERSION
 RUN npm install $BITCORE_PKG
 
 # Remove duplicate node_module 'bitcore-lib' to prevent startup errors suchn as:

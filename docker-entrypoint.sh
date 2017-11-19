@@ -37,7 +37,7 @@ if [ ! -f ${BITCORE_NODE_CONFIG} ]; then
     echo "  \"services\": [" >> ${BITCORE_NODE_CONFIG}
     echo "    \"web\"," >> ${BITCORE_NODE_CONFIG}
     echo "    \"bitcoind\"," >> ${BITCORE_NODE_CONFIG}
-    echo "    \"bitcore-wallet-service\"," >> ${BITCORE_NODE_CONFIG}
+   #echo "    \"bitcore-wallet-service\"," >> ${BITCORE_NODE_CONFIG}
     echo "    \"insight-api\"" >> ${BITCORE_NODE_CONFIG}
     echo "  ]," >> ${BITCORE_NODE_CONFIG}
     echo "  \"servicesConfig\": {" >> ${BITCORE_NODE_CONFIG}
