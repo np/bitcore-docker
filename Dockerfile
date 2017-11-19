@@ -44,11 +44,11 @@ USER node
 # RUN cd /home/node/bitcore/node_modules/bitcore-wallet-service && \
 #     patch -p1 < /home/node/bitcore/node_modules/bitcore-wallet-service/02-blockchainmonitor-no-testnet-log.patch && \
 #     rm -f /home/node/bitcore/node_modules/bitcore-wallet-service/02-blockchainmonitor-no-testnet-log.patch
-COPY patches/03-bitcoind-rpc-queuing.patch /home/node/bitcore/node_modules/bitcoind-rpc/03-bitcoind-rpc-queuing.patch
-RUN cd /home/node/bitcore/node_modules/bitcoind-rpc && \
-    patch -p1 < /home/node/bitcore/node_modules/bitcoind-rpc/03-bitcoind-rpc-queuing.patch && \
-    npm install && \
-    rm -f /home/node/bitcore/node_modules/bitcoind-rpc/03-bitcoind-rpc-queuing.patch
+# COPY patches/03-bitcoind-rpc-queuing.patch /home/node/bitcore/node_modules/bitcoind-rpc/03-bitcoind-rpc-queuing.patch
+# RUN cd /home/node/bitcore/node_modules/bitcoind-rpc && \
+#     patch -p1 < /home/node/bitcore/node_modules/bitcoind-rpc/03-bitcoind-rpc-queuing.patch && \
+#     npm install && \
+#     rm -f /home/node/bitcore/node_modules/bitcoind-rpc/03-bitcoind-rpc-queuing.patch
 
 # Define environment variables through which the container can be fine-tuned
 ENV BITCOIND_DATA_DIR="/home/node/bitcoind" \
