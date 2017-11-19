@@ -2,9 +2,7 @@ FROM node:4
 MAINTAINER Jens Mittag <kontakt@jensmittag.de>
 
 # Version configuration
-ARG BITCORE_NODE_VERSION=3.1.3
-ARG BITCORE_LIB_VERSION=0.14.0
-ARG INSIGHT_API_VERSION=0.4.3
+ARG BITCORE_PKG=satoshilabs/bitcore
 ARG WALLET_SERVICE_VERSION=1.17.0
 ARG BITCOIND_RPC_VERSION=0.7.0
 
@@ -18,11 +16,9 @@ USER node
 RUN mkdir /home/node/bitcore
 RUN mkdir /home/node/bitcoind
 WORKDIR /home/node/bitcore
-RUN npm install bitcore-node@$BITCORE_NODE_VERSION && \
-    npm install bitcore-lib@$BITCORE_LIB_VERSION
-RUN npm install insight-api@$INSIGHT_API_VERSION && \
-    npm install bitcore-wallet-service@$WALLET_SERVICE_VERSION
-RUN npm install bitcoind-rpc@$BITCOIND_RPC_VERSION
+RUN npm install bitcoind-rpc:$BITCOIND_RPC_VERSION
+RUN npm install bitcore-wallet-service@$WALLET_SERVICE_VERSION
+RUN npm install $BITCORE_PKG
 
 # Remove duplicate node_module 'bitcore-lib' to prevent startup errors suchn as:
 #   "More than one instance of bitcore-lib found. Please make sure to require bitcore-lib and check that submodules do
