@@ -6,7 +6,7 @@ BITCOIND_DATA_DIR="/home/node/bitcoind"
 BITCOIND_PID="${BITCOIND_DATA_DIR}/bitcoind.pid"
 BITCOIND_CONFIG="${BITCOIND_DATA_DIR}/bitcoin.conf"
 BITCORE_NODE_CONFIG="/home/node/bitcore/bitcore-node.json"
-BITCORE_WALLET_CONFIG="/home/node/bitcore/node_modules/bitcore-wallet-service/config.js"
+#BITCORE_WALLET_CONFIG="/home/node/bitcore/node_modules/bitcore-wallet-service/config.js"
 
 # Generate default bitcoin.conf if none is yet existing
 if [ ! -f ${BITCOIND_CONFIG} ]; then
@@ -64,6 +64,7 @@ if [ ! -f ${BITCORE_NODE_CONFIG} ]; then
     echo "Created initial bitcore-node.json in directory '/home/node/bitcore'"
 fi
 
+if false; then
 # Always generate default config.js for bitcore-wallet-service, if none is yet existing
 echo "var config = {" > ${BITCORE_WALLET_CONFIG}
 echo "  basePath: '/'," >> ${BITCORE_WALLET_CONFIG}
@@ -97,7 +98,7 @@ echo "    }" >> ${BITCORE_WALLET_CONFIG}
 echo "  }" >> ${BITCORE_WALLET_CONFIG}
 echo "};" >> ${BITCORE_WALLET_CONFIG}
 echo "module.exports = config;" >> ${BITCORE_WALLET_CONFIG}
-
+fi
 echo "Created initial config.js in directory '/home/node/bitcore/node_modules/bitcore-wallet-service'"
 
 # Check if a PID file of a previously started bitcoind instance is still existing
