@@ -108,4 +108,4 @@ if [ -f ${BITCOIND_PID} ]; then
 fi
 
 # Starting bitcore node
-./node_modules/.bin/bitcore-node start
+./node_modules/.bin/bitcore start
